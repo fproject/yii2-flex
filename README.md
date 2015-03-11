@@ -15,22 +15,12 @@ Usage
 
 See the following sample code of view file:
 
- ``` 
- 
-     $this->registerJs("
-     $('#w0').remove();
-     $('.wrap').css('width','100%').css('height','100%').css('top','0px').css('bottom','0px').css('left','0px').css('right','0px').css('padding-top','0px').css('padding-right','0px').css('padding-left','0px').css('padding-bottom','0px');
-     $('#MyFlexApp').closest('div').css('width','100%').css('height','100%').css('top','0px').css('bottom','0px').css('left','0px').css('right','0px').css('padding-top','0px').css('padding-right','0px').css('padding-left','0px').css('padding-bottom','0px');
-     ",\yii\web\View::POS_READY, 'flex.app');
- 
-     $baseUrl = Yii::getAlias("@web");
-     $userToken = 'usertoken_00_000';
-     $loginUserId = '1001';
+ ```
      FlexWidget::begin([
          'name'=>'MyFlexApp',
-         'baseUrl'=>$baseUrl.Yii::$app->params['flexAppBasePath'],
-         'rslBaseUrl'=>$baseUrl.Yii::$app->params['flexRSLBasePath'],
-         'moduleBaseUrl'=>$baseUrl.Yii::$app->params['flexModuleBasePath'],
+         'baseUrl'=>'/flexapps/myflexapp',//Relative path to your flex app dir
+         'rslBaseUrl'=>'/flexapps/rsls',
+         'moduleBaseUrl'=>'/flexapps/myflexapp/modules',
          'width'=>'100%',
          'height'=>'100%',
          'align'=>'left',
