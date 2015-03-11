@@ -11,6 +11,7 @@ namespace fproject\widgets;
 use yii\base\Exception;
 use yii\base\Widget;
 use Yii;
+use yii\web\View;
 
 /**
  * FlexWidget embeds a Flex 4.x application into a page.
@@ -39,14 +40,12 @@ class FlexWidget extends Widget{
     /**
      * @var string the base URL of the Flex modules.
      * This refers to the URL of the directory containing the module SWF file.
-     * @since 1.1.14 (ProjectKit.net)
      */
     public $moduleBaseUrl;
 
     /**
      * @var string the base URL of the Flex RSLs.
      * This refers to the URL of the directory containing the module SWF file.
-     * @since 1.1.14 (ProjectKit.net)
      */
     public $rslBaseUrl;
 
@@ -76,12 +75,10 @@ class FlexWidget extends Widget{
     public $allowScriptAccess='sameDomain';
     /**
      * @var boolean whether to allow running the Flash in full screen mode. Defaults to false.
-     * @since 1.1.1
      */
     public $allowFullScreen=false;
     /**
      * @var boolean whether to allow running the Flash in full screen mode. Defaults to false.
-     * @since 1.1.14 (ProjectKit.net)
      */
     public $allowFullScreenInteractive=false;
     /**
@@ -115,7 +112,20 @@ class FlexWidget extends Widget{
 
         $this->registerClientScript();
 
-        $this->render('flexWidget');
+        return $this->render('flexWidget', [
+            'name' => $this->name,
+            'flashVersion' => $this->flashVersion,
+            'baseUrl' => $this->baseUrl,
+            'flashVarsAsString' => $this->flashVarsAsString,
+            'quality' => $this->quality,
+            'bgColor' => $this->bgColor,
+            'allowScriptAccess' => $this->allowScriptAccess,
+            'allowFullScreen' => $this->allowFullScreen,
+            'allowFullScreenInteractive' => $this->allowFullScreenInteractive,
+            'width' => $this->width,
+            'height' => $this->height,
+            'align' => $this->align,
+        ]);
     }
 
     /**
@@ -124,7 +134,7 @@ class FlexWidget extends Widget{
     public function registerClientScript()
     {
         $view = $this->getView();
-        $view->registerJsFile($this->baseUrl.'/swfobject.js');
+        $view->registerJsFile($this->baseUrl.'/swfobject.js',['position'=>View::POS_BEGIN]);
         if($this->enableHistory)
         {
             $view->registerCssFile($this->baseUrl.'/history/history.css');
