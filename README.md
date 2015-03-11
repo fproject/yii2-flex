@@ -19,8 +19,8 @@ See the following sample code of view file:
      FlexWidget::begin([
          'name'=>'MyFlexApp',
          'baseUrl'=>'/flexapps/myflexapp',//Relative path to your flex app dir
-         'rslBaseUrl'=>'/flexapps/rsls',
-         'moduleBaseUrl'=>'/flexapps/myflexapp/modules',
+         'rslBaseUrl'=>'/flexapps/rsls',//Relative path to your flex RSLs dir
+         'moduleBaseUrl'=>'/flexapps/myflexapp/modules',//Relative path to your module dir
          'width'=>'100%',
          'height'=>'100%',
          'align'=>'left',
