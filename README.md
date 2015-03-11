@@ -17,19 +17,19 @@ See the following sample code of view file:
 
  ```
      FlexWidget::begin([
-         'name'=>'MyFlexApp',
-         'baseUrl'=>'/flexapps/myflexapp',//Relative path to your flex app dir
-         'rslBaseUrl'=>'/flexapps/rsls',//Relative path to your flex RSLs dir
-         'moduleBaseUrl'=>'/flexapps/myflexapp/modules',//Relative path to your module dir
+         'name'=>'MyFlexApp', //Name of your Flex application file without SWF extension
+         'baseUrl'=>'/flexapps/myflexapp', //Relative path to your flex app dir
+         'rslBaseUrl'=>'/flexapps/rsls', //Relative path to your flex RSLs dir
+         'moduleBaseUrl'=>'/flexapps/myflexapp/modules', //Relative path to your module dir
          'width'=>'100%',
          'height'=>'100%',
          'align'=>'left',
          'enableHistory'=>'false',
          'allowFullScreen'=>'true',
          'allowFullScreenInteractive'=>'true',
-         'flashVars'=>[
-             'loginUserId'=>$loginUserId,
-             'userToken'=>str_replace('"', '\\"', $userToken),
+         'flashVars'=>[ //The variables you want to pass to Flex application
+             'loginUserId'=>'my_user_id_xxx', //The logged in User ID
+             'userToken'=>'the_login_token', //The auth token that will be used for Flex's RPC authentication
          ],
      ]);
      FlexWidget::end();
