@@ -3,15 +3,17 @@ yii2-flex
 
 FlexWiget - a Yii 2.0 Widget for Flex application
 
-Installation
-------------
+##Requirements
+
+Yii 2.0 or above
+
+##Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
     composer.phar require fproject/yii2-flex:"*"
 
-Usage
------
+##Usage
 
 See the following sample code of view file:
 
