@@ -1,7 +1,7 @@
 <?php
 use yii\web\View;
 /**
- * The view file for CFlexWidget.
+ * The view file for FlexWidget.
  *
  * @author Bui Sy Nguyen <nguyenbs@f-project.net>
  *
