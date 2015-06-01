@@ -17,7 +17,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 See the following sample code of view file:
 
- ```
+
      FlexWidget::begin([
          'name'=>'MyFlexApp', //Name of your Flex application file without SWF extension
          'baseUrl'=>'/flexapps/myflexapp', //Relative path to your flex app dir
@@ -35,7 +35,8 @@ See the following sample code of view file:
          ],
      ]);
      FlexWidget::end();
- ```
+
+
 Links
 -----
 
