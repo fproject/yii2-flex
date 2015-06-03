@@ -2,6 +2,7 @@ yii2-flex
 ===========
 
 FlexWiget - a Yii 2.0 Widget for Flex application
+
 [![Latest Stable Version](https://poser.pugx.org/fproject/yii2-flex/v/stable)](https://packagist.org/packages/fproject/yii2-flex)
 [![Total Downloads](https://poser.pugx.org/fproject/yii2-flex/downloads)](https://packagist.org/packages/fproject/yii2-flex)
 [![Latest Unstable Version](https://poser.pugx.org/fproject/yii2-flex/v/unstable)](https://packagist.org/packages/fproject/yii2-flex)
