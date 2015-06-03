@@ -4,7 +4,7 @@
     "keywords": ["yii2", "flex"],
     "homepage": "https://github.com/fproject/yii2-flex",
     "type": "yii2-extension",
-    "license": "BSD-3-Clause",
+    "license" : "Apache License 2.0",
     "authors": [
         {
             "name": "Bui Sy Nguyen",
