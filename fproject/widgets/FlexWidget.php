@@ -21,6 +21,7 @@ namespace fproject\widgets;
 use yii\base\Exception;
 use yii\base\Widget;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\web\View;
 
 /**
@@ -161,13 +162,13 @@ class FlexWidget extends Widget{
         $params=array();
         foreach($this->flashVars as $k=>$v)
             $params[] = $k.':"'.urlencode($v).'"';
-        if(!array_key_exists('baseUrl', $params))
+        if(!ArrayHelper::keyExists('baseUrl', $this->flashVars, false))
             $params[] = 'baseUrl:"'.urlencode($this->baseUrl).'"';
-        if(!array_key_exists('moduleBaseUrl', $params))
+        if(!ArrayHelper::keyExists('moduleBaseUrl', $this->flashVars, false))
             $params[] = 'moduleBaseUrl:"'.urlencode($this->moduleBaseUrl).'"';
-        if(!array_key_exists('rslBaseUrl', $params))
+        if(!ArrayHelper::keyExists('rslBaseUrl', $this->flashVars, false))
             $params[] = 'rslBaseUrl:"'.urlencode($this->rslBaseUrl).'"';
-        if(!array_key_exists('locale', $params))
+        if(!ArrayHelper::keyExists('locale', $this->flashVars, false))
             $params[] = 'locale:"'.urlencode(Yii::$app->language).'"';
         return implode(',',$params);
     }
