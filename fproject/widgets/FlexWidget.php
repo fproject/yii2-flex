@@ -164,15 +164,24 @@ class FlexWidget extends Widget
     {
         $params=array();
         foreach($this->flashVars as $k=>$v)
+        {
+            if(!is_string($v))
+                $v = json_encode($v);
             $params[] = $k.':"'.urlencode($v).'"';
-        if(!ArrayHelper::keyExists('baseUrl', $this->flashVars, false))
+        }
+
+        if(!array_key_exists('baseUrl', $this->flashVars))
             $params[] = 'baseUrl:"'.urlencode($this->baseUrl).'"';
-        if(!ArrayHelper::keyExists('moduleBaseUrl', $this->flashVars, false))
+
+        if(!array_key_exists('moduleBaseUrl', $this->flashVars))
             $params[] = 'moduleBaseUrl:"'.urlencode($this->moduleBaseUrl).'"';
-        if(!ArrayHelper::keyExists('rslBaseUrl', $this->flashVars, false))
+
+        if(!array_key_exists('rslBaseUrl', $this->flashVars))
             $params[] = 'rslBaseUrl:"'.urlencode($this->rslBaseUrl).'"';
-        if(!ArrayHelper::keyExists('locale', $this->flashVars, false))
+
+        if(!array_key_exists('locale', $this->flashVars))
             $params[] = 'locale:"'.urlencode($this->getFlexLocale(Yii::$app->language)).'"';
+
         return implode(',',$params);
     }
 
