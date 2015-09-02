@@ -113,11 +113,6 @@ class FlexWidget extends Widget
     public $flashVars=array();
 
     /**
-     * @var string detault language
-     */
-    public $defaultLanguage = "en_US";
-
-    /**
      * Renders the widget.
      */
     public function run()
@@ -187,16 +182,20 @@ class FlexWidget extends Widget
      * @return string
      */
     private function getFlexLocale($language) {
-        if(empty($language))
-            return $this->defaultLanguage; // default to en_US
+        if(!empty($language))
+        {
+            $split = explode("-", $language, 2);
 
-        $split = explode("-", $language, 2);
-
-        if(is_array($split) && count($split) == 2 && $split[1] != "") {
-            $split[1] = strtoupper($split[1]);
-        } else {
-            return false;
+            if(count($split) == 2 && $split[1] != "") {
+                $split[1] = strtoupper($split[1]);
+            } else {
+                $split = null;
+            }
         }
+
+        if(empty($split))
+            $split = ['en', 'US'];
+
         return $split[0] . self::LANGUAGUE_SEPARATOR . $split[1];
     }
 }
