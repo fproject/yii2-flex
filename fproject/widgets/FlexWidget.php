@@ -36,7 +36,10 @@ use yii\web\View;
  * @author Bui Sy Nguyen <nguyenbs@f-project.net>
  * @package fproject\widgets
  */
-class FlexWidget extends Widget{
+class FlexWidget extends Widget
+{
+    const LANGUAGUE_SEPARATOR = "_";
+
     /**
      * @var string name of the Flex application.
      * This should be the SWF file name without the ".swf" suffix.
@@ -110,6 +113,11 @@ class FlexWidget extends Widget{
     public $flashVars=array();
 
     /**
+     * @var string detault language
+     */
+    public $defaultLanguage = "en_US";
+
+    /**
      * Renders the widget.
      */
     public function run()
@@ -169,7 +177,26 @@ class FlexWidget extends Widget{
         if(!ArrayHelper::keyExists('rslBaseUrl', $this->flashVars, false))
             $params[] = 'rslBaseUrl:"'.urlencode($this->rslBaseUrl).'"';
         if(!ArrayHelper::keyExists('locale', $this->flashVars, false))
-            $params[] = 'locale:"'.urlencode(Yii::$app->language).'"';
+            $params[] = 'locale:"'.urlencode($this->getFlexLocale(Yii::$app->language)).'"';
         return implode(',',$params);
+    }
+
+    /**
+     * Returns locale with format for flex application
+     * @param string $language the app language
+     * @return string
+     */
+    private function getFlexLocale($language) {
+        if(empty($language))
+            return $this->defaultLanguage; // default to en_US
+
+        $split = explode("-", $language, 2);
+
+        if(is_array($split) && count($split) == 2 && $split[1] != "") {
+            $split[1] = strtoupper($split[1]);
+        } else {
+            return false;
+        }
+        return $split[0] . self::LANGUAGUE_SEPARATOR . $split[1];
     }
 }
