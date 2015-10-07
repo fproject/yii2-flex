@@ -87,6 +87,12 @@ class FlexWidget extends Widget
      * @var string the access method of the script. Defaults to 'sameDomain'.
      */
     public $allowScriptAccess='sameDomain';
+
+    /**
+     * @var bool allow WebSocket bridge access. Defaults to 'false'
+     */
+    public $allowWsBridge=false;
+
     /**
      * @var boolean whether to allow running the Flash in full screen mode. Defaults to false.
      */
@@ -133,13 +139,23 @@ class FlexWidget extends Widget
             'flashVarsAsString' => $this->flashVarsAsString,
             'quality' => $this->quality,
             'bgColor' => $this->bgColor,
-            'allowScriptAccess' => $this->allowScriptAccess,
-            'allowFullScreen' => $this->allowFullScreen,
-            'allowFullScreenInteractive' => $this->allowFullScreenInteractive,
+            'allowScriptAccess' => $this->b2s($this->allowScriptAccess),
+            'allowFullScreen' => $this->b2s($this->allowFullScreen),
+            'allowFullScreenInteractive' => $this->b2s($this->allowFullScreenInteractive),
             'width' => $this->width,
             'height' => $this->height,
             'align' => $this->align,
         ]);
+    }
+
+    /**
+     * Convert boolean to string
+     * @param bool $b
+     * @return string
+     */
+    private function b2s($b)
+    {
+        return $b ? 'true' : 'false';
     }
 
     /**
@@ -153,6 +169,10 @@ class FlexWidget extends Widget
         {
             $view->registerCssFile($this->baseUrl.'/history/history.css');
             $view->registerJsFile($this->baseUrl.'/history/history.js');
+        }
+        if($this->allowWsBridge)
+        {
+            $view->registerJsFile($this->baseUrl.'/ws_bridge.js',['position'=>View::POS_END]);
         }
     }
 

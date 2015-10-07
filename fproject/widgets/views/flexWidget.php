@@ -21,14 +21,22 @@ use yii\web\View;
 /**
  * The view file for FlexWidget.
  *
+ * @var View $this
+ * @var string $flashVersion
+ * @var string $baseUrl
+ * @var string $flashVarsAsString
+ * @var string $quality
+ * @var string $bgColor
+ * @var string $allowScriptAccess
+ * @var string $allowFullScreen
+ * @var string $allowFullScreenInteractive
+ * @var string $width
+ * @var string $height
+ * @var string $align
+ *
  * @author Bui Sy Nguyen <nguyenbs@f-project.net>
  *
  */
-/* @var View $this  */
-/*
- * Bui Sy Nguyen <nguyenbs@gmail.com>
- * 20130610: Replaced the widget view for displaying Flex 4 and Flash Player 11+
- * */
 
 $this->registerJs("
     function isMSIE()
