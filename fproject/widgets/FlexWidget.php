@@ -139,7 +139,7 @@ class FlexWidget extends Widget
             'flashVarsAsString' => $this->flashVarsAsString,
             'quality' => $this->quality,
             'bgColor' => $this->bgColor,
-            'allowScriptAccess' => $this->b2s($this->allowScriptAccess),
+            'allowScriptAccess' => $this->allowScriptAccess,
             'allowFullScreen' => $this->b2s($this->allowFullScreen),
             'allowFullScreenInteractive' => $this->b2s($this->allowFullScreenInteractive),
             'width' => $this->width,
