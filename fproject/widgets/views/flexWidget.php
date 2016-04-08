@@ -71,7 +71,7 @@ $this->registerJs("
 ", View::POS_READY, 'widgets.flexWidget');
 ?>
 <head>
-    <meta name="google" value="notranslate" />
+    <meta name="google" content="notranslate" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and
          the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as
@@ -110,7 +110,7 @@ $this->registerJs("
             swfVersionStr, xiSwfUrlStr,
             flashvars, params, attributes);
         // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
-        swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        swfobject.createCSS("#flashContent", "display:block !important;text-align:left;");
     </script>
 </head>
 <body>
