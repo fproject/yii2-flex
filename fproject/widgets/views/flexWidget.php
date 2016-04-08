@@ -90,8 +90,8 @@ $this->registerJs("
     <script type="text/javascript">
         // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection.
         var swfVersionStr = "<?php echo $flashVersion; ?>";
-        // To use express install, set to playerProductInstall.swf, otherwise the empty string.
-        var xiSwfUrlStr = "<?php echo $baseUrl ?>/playerProductInstall.swf";
+        // To use express install, set to expressInstall.swf, otherwise the empty string.
+        var xiSwfUrlStr = "<?php echo $baseUrl ?>/expressInstall.swf";
         var flashvars = {<?php echo $flashVarsAsString; ?>};
         var params = {};
         params.quality = "<?php echo $quality; ?>";
