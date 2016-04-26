@@ -120,13 +120,20 @@ $this->registerJs("
 -->
 <div id="flashContent">
     <p>
-        To view this page ensure that Adobe Flash Player version
-        <?php echo $flashVersion; ?> or greater is installed.
+        <?= Yii::t('fproject/yii2-flex', 'To view this page ensure that Adobe Flash Player version {version} or greater is installed.', [
+            'version' => $flashVersion,
+        ]) ?>
+    </p>
+    <p>
+        <?= Yii::t('fproject/yii2-flex', 'Please follow this guide for {aTag} install Flash Player in five easy steps{aCloseTag}.', [
+            'aTag' => '<a href="https://helpx.adobe.com/flash-player.html" target="_blank">',
+            'aCloseTag' => '</a>',
+        ]) ?>
     </p>
     <script type="text/javascript">
         var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-        document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='"
-            + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" );
+        document.write("<?= Yii::t('fproject/yii2-flex', 'Or download it here') ?> <a href='http://www.adobe.com/go/getflashplayer'><img src='"
+            + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' style='vertical-align: top;' /></a>" );
     </script>
 </div>
 
@@ -148,8 +155,9 @@ $this->registerJs("
             <!--<![endif]-->
             <!--[if gte IE 6]>-->
             <p>
-                Either scripts and active content are not permitted to run or Adobe Flash Player version
-                <?php echo $flashVersion; ?> or greater is not installed.
+                <?= Yii::t('fproject/yii2-flex', 'Either scripts and active content are not permitted to run or Adobe Flash Player version {version} or greater is not installed.', [
+                    'version' => $flashVersion
+                ]) ?>
             </p>
             <!--<![endif]-->
             <a href="http://www.adobe.com/go/getflashplayer">
