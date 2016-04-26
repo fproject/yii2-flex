@@ -21,7 +21,6 @@ namespace fproject\widgets;
 use yii\base\Exception;
 use yii\base\Widget;
 use Yii;
-use yii\helpers\ArrayHelper;
 use yii\web\View;
 
 /**
@@ -119,16 +118,46 @@ class FlexWidget extends Widget
     public $flashVars=array();
 
     /**
+     * @var array translation to be passed with your Yii2 application.
+     */
+    public $translation;
+
+    public function init()
+    {
+        parent::init();
+        $this->registerTranslations();
+    }
+
+    protected function registerTranslations()
+    {
+        $i18n = Yii::$app->i18n;
+        if(isset($this->translation) && is_array($this->translation)) {
+            $i18n->translations['fproject/yii2-flex'] = $this->translation;
+        } else {
+            Yii::setAlias('@fproject/yii2-flex', '@vendor/fproject/yii2-flex/fproject');
+            $i18n->translations['fproject/yii2-flex'] = [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@fproject/yii2-flex/translation',
+                'fileMap' => [
+                    'fproject/yii2-flex' => 'flex.php',
+                ],
+            ];
+        }
+    }
+
+    /**
      * Renders the widget.
      */
     public function run()
     {
         if(empty($this->name))
-            throw new Exception(Yii::t('yii','FlexWidget.name cannot be empty.'));
+            throw new Exception(Yii::t('fproject/yii2-flex','FlexWidget.name cannot be empty.'));
         if(empty($this->baseUrl))
-            throw new Exception(Yii::t('yii','FlexWidget.baseUrl cannot be empty.'));
+            throw new Exception(Yii::t('fproject/yii2-flex','FlexWidget.baseUrl cannot be empty.'));
         if($this->altHtmlContent===null)
-            $this->altHtmlContent=Yii::t('yii','This content requires the <a href="http://www.adobe.com/go/getflash/">Adobe Flash Player</a>.');
+            $this->altHtmlContent=Yii::t('fproject/yii2-flex','This content requires the {link}',[
+                'link' => '<a href="http://www.adobe.com/go/getflash/">Adobe Flash Player</a>.',
+            ]);
 
         $this->registerClientScript();
 
