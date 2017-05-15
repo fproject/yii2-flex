@@ -63,6 +63,11 @@ class FlexWidget extends Widget
     public $rslBaseUrl;
 
     /**
+     * @var string logo URL of your app.
+     */
+    public $logoUrl = "https://helpx.adobe.com/content/dam/help/mnemonics/flashplayer_app_RGB.svg";
+
+    /**
      * @var string width of the application region. Defaults to 450.
      */
     public $width='100%';
@@ -163,6 +168,7 @@ class FlexWidget extends Widget
 
         return $this->render('flexWidget', [
             'name' => $this->name,
+            'logoUrl' => $this->logoUrl,
             'flashVersion' => $this->flashVersion,
             'baseUrl' => $this->baseUrl,
             'flashVarsAsString' => $this->flashVarsAsString,
