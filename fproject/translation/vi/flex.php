@@ -20,9 +20,9 @@ return [
     'FlexWidget.name cannot be empty.' => 'FlexWidget.name không thể để trống.',
     'FlexWidget.baseUrl cannot be empty.' => 'FlexWidget.baseUrl không thể để trống.',
     'This content requires the {link}' => 'Nội dung này cần {link} để hiển thị.',
-    'To view this page ensure that Adobe Flash Player version {version} or greater is installed.' => 'Để hiển thị trang hãy chắc chắn phiên bản Adobe Flash Player {version} hoặc mới hơn được cài đặt.',
-    'Please follow this guide for {aTag} install Flash Player in five easy steps{aCloseTag}.' => 'Vui lòng làm theo hướng dẫn sau {aTag} để cài đặt Flash Player trong 5 bước đơn giản{aCloseTag}.',
-    'Or download it here' => 'Hoặc tải về trực tiếp tại đây ',
-    'Either scripts and active content are not permitted to run or Adobe Flash Player version {version} or greater is not installed.' => ''
+    'Either scripts and active content are not permitted to run or Adobe Flash Player version {version} or greater is not installed.' => 'Phiên bản Flash Player quá cũ, bạn cần cập nhật lên phiên bản mới để sử dụng.',
+    'You will need Adobe Flash Player installed to use {name}.' => 'Bạn cần cài đặt và bật Adobe Flash Player để sử dụng {name}.',
+    'Click here to enable Flash Player' => 'Nhấp vào đây để bật Flash Player',
+    'Install Flash Player in five easy steps' => 'Cài đặt Flash Player đơn giản trong 5 bước',
 ];
 ?>

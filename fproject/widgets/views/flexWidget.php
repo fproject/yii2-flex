@@ -18,6 +18,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 use yii\web\View;
+
 /**
  * The view file for FlexWidget.
  *
@@ -33,6 +34,7 @@ use yii\web\View;
  * @var string $width
  * @var string $height
  * @var string $align
+ * @var string $logoUrl
  *
  * @author Bui Sy Nguyen <nguyenbs@f-project.net>
  *
@@ -71,8 +73,8 @@ $this->registerJs("
 ", View::POS_READY, 'widgets.flexWidget');
 ?>
 <head>
-    <meta name="google" content="notranslate" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google" content="notranslate"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!-- Include CSS to eliminate any default margins/padding and set the height of the html element and
          the body element to 100%, because Firefox, or any Gecko based browser, interprets percentage as
          the percentage of the height of its parent container, which has to be set explicitly.  Fix for
@@ -118,40 +120,42 @@ $this->registerJs("
      JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
      when JavaScript is disabled.
 -->
-<div id="flashContent">
-    <p>
-        <?= Yii::t('fproject/yii2-flex', 'To view this page ensure that Adobe Flash Player version {version} or greater is installed.', [
-            'version' => $flashVersion,
+<div id="flashContent" style="text-align: center; margin-top: 50px;">
+    <img class="flash-msg-logo" src="<?= $logoUrl ?>"
+         height="70" alt="ProjectKit logo">
+    <p class="flash-msg-large">
+        <?= Yii::t('fproject/yii2-flex', 'You will need Adobe Flash Player installed to use {name}.', [
+            'name' => $name,
         ]) ?>
     </p>
     <p>
-        <?= Yii::t('fproject/yii2-flex', 'Please follow this guide for {aTag} install Flash Player in five easy steps{aCloseTag}.', [
-            'aTag' => '<a href="https://helpx.adobe.com/flash-player.html" target="_blank">',
-            'aCloseTag' => '</a>',
-        ]) ?>
+        <a class="flash-msg-btn" href="https://get.adobe.com/flashplayer/" target="_blank" style="text-decoration: none; background-color: #337ab7;color: #fff;border: #2e6da4 solid 1px;padding: 8px 70px;border-radius: 5px;">
+            <?= Yii::t('fproject/yii2-flex', 'Click here to enable Flash Player') ?>
+        </a>
     </p>
-    <script type="text/javascript">
-        var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-        document.write("<?= Yii::t('fproject/yii2-flex', 'Or download it here') ?> <a href='http://www.adobe.com/go/getflashplayer'><img src='"
-            + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' style='vertical-align: top;' /></a>" );
-    </script>
+    <p>
+        <a href="https://helpx.adobe.com/flash-player.html" target="_blank">
+            <?= Yii::t('fproject/yii2-flex', 'Install Flash Player in five easy steps') ?>
+        </a>
+    </p>
 </div>
 
 <noscript>
     <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="ProjectKit">
-        <param name="movie" value="<?php echo $baseUrl ?>/<?php echo $name ?>.swf" />
-        <param name="quality" value="<?php echo $quality; ?>" />
-        <param name="bgcolor" value="<?php echo $bgColor; ?>" />
-        <param name="allowScriptAccess" value="<?php echo $allowScriptAccess ?>" />
-        <param name="allowFullScreen" value="<?php echo $allowFullScreen ?>" />
-        <param name="allowFullScreenInteractive" value="<?php echo $allowFullScreenInteractive ?>" />
+        <param name="movie" value="<?php echo $baseUrl ?>/<?php echo $name ?>.swf"/>
+        <param name="quality" value="<?php echo $quality; ?>"/>
+        <param name="bgcolor" value="<?php echo $bgColor; ?>"/>
+        <param name="allowScriptAccess" value="<?php echo $allowScriptAccess ?>"/>
+        <param name="allowFullScreen" value="<?php echo $allowFullScreen ?>"/>
+        <param name="allowFullScreenInteractive" value="<?php echo $allowFullScreenInteractive ?>"/>
         <!--[if !IE]>-->
-        <object type="application/x-shockwave-flash" data="<?php echo $baseUrl ?>/<?php echo $name ?>.swf" width="100%" height="100%">
-            <param name="quality" value="<?php echo $quality; ?>" />
-            <param name="bgcolor" value="<?php echo $bgColor; ?>" />
-            <param name="allowScriptAccess" value="<?php echo $allowScriptAccess ?>" />
-            <param name="allowFullScreen" value="<?php echo $allowFullScreen ?>" />
-            <param name="allowFullScreenInteractive" value="<?php echo $allowFullScreenInteractive ?>" />
+        <object type="application/x-shockwave-flash" data="<?php echo $baseUrl ?>/<?php echo $name ?>.swf" width="100%"
+                height="100%">
+            <param name="quality" value="<?php echo $quality; ?>"/>
+            <param name="bgcolor" value="<?php echo $bgColor; ?>"/>
+            <param name="allowScriptAccess" value="<?php echo $allowScriptAccess ?>"/>
+            <param name="allowFullScreen" value="<?php echo $allowFullScreen ?>"/>
+            <param name="allowFullScreenInteractive" value="<?php echo $allowFullScreenInteractive ?>"/>
             <!--<![endif]-->
             <!--[if gte IE 6]>-->
             <p>
@@ -161,7 +165,8 @@ $this->registerJs("
             </p>
             <!--<![endif]-->
             <a href="http://www.adobe.com/go/getflashplayer">
-                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" />
+                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+                     alt="Get Adobe Flash Player"/>
             </a>
             <!--[if !IE]>-->
         </object>

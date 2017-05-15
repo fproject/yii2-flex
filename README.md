@@ -29,6 +29,7 @@ See the following sample code of view file:
          'baseUrl'=>'/flexapps/myflexapp', //Relative path to your flex app dir
          'rslBaseUrl'=>'/flexapps/rsls', //Relative path to your flex RSLs dir
          'moduleBaseUrl'=>'/flexapps/myflexapp/modules', //Relative path to your module dir
+         'logoUrl' => 'url_to_your_logo',
          'width'=>'100%',
          'height'=>'100%',
          'align'=>'left',
