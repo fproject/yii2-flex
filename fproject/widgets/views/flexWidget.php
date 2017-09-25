@@ -120,23 +120,26 @@ $this->registerJs("
      JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
      when JavaScript is disabled.
 -->
-<div id="flashContent" style="text-align: center; margin-top: 50px;">
+<div id="flashContent" style="text-align: center; margin-top: 50px; font-size: 15.5px; font-family: Arial, Helvetica, sans-serif;">
     <img class="flash-msg-logo" src="<?= $logoUrl ?>"
          height="70" alt="ProjectKit logo">
     <p class="flash-msg-large">
-        <?= Yii::t('fproject/yii2-flex', 'You will need Adobe Flash Player installed to use {name}.', [
+        <?= Yii::t('fproject/yii2-flex', 'Some features of {name} need Adobe Flash Player installed.', [
             'name' => $name,
         ]) ?>
     </p>
     <p>
-        <a class="flash-msg-btn" href="https://get.adobe.com/flashplayer/" target="_blank" style="text-decoration: none; background-color: #337ab7;color: #fff;border: #2e6da4 solid 1px;padding: 8px 70px;border-radius: 5px;">
-            <?= Yii::t('fproject/yii2-flex', 'Click here to enable Flash Player') ?>
+        <a class="flash-msg-btn" href="https://get.adobe.com/flashplayer/" target="_blank" style="text-decoration: none; background-color: #337ab7;color: #fff;border: #2e6da4 solid 1px;padding: 8px 70px;border-radius: 5px;font-size: 20px;">
+            <?= Yii::t('fproject/yii2-flex', 'Click here to enable Adobe Flash Player') ?>
         </a>
     </p>
-    <p>
-        <a href="https://helpx.adobe.com/flash-player.html" target="_blank">
-            <?= Yii::t('fproject/yii2-flex', 'Install Flash Player in five easy steps') ?>
-        </a>
+    <p style="line-height: 1.5em;">
+        <?= Yii::t('fproject/yii2-flex', 'We are working to release all of our features running in native browser in 2018.') ?>
+        <br />
+        <?= Yii::t('fproject/yii2-flex', 'If you are still having trouble loading {name}, contact us at <a href="mailto:{email}">{email}</a> for quick help.', [
+            'name' => 'ProjectKit',
+            'email' => 'support@projectkit.net'
+        ]) ?>
     </p>
 </div>
 
